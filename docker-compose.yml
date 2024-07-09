@@ -1,0 +1,28 @@
+services:
+  adservice:
+    image: adservice
+
+  productcatalogservice:
+    image: productcatalogservice
+
+  cartservice:
+    image: cartservice
+    environment:
+      - REDIS_ADDR=redis-cart:6379
+    depends_on:
+      - redis-cart
+
+  redis-cart:
+    image: redis:6-alpine
+
+  shippingservice:
+    image: shippingservice
+
+  currencyservice:
+    image: currencyservice
+
+  paymentservice:
+    image: paymentservice
+
+  emailservice:
+    image: emailservice
