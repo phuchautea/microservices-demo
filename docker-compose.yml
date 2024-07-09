@@ -11,7 +11,8 @@ services:
       - DISABLE_PROFILER=1
 
   cartservice:
-    image: cartservice
+    image: cartservice:v2
+    platform: linux/amd64
     environment:
       - REDIS_ADDR=redis-cart:6379
     depends_on:
